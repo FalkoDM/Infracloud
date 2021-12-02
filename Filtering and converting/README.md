@@ -1,11 +1,11 @@
 # Convert and filter data structures
 
-YAML \n
-Json
-XML
+YAML  
+Json  
+XML  
 
-string ==> dict
-dict ==> string
-dict ==> yaml
+string ==> dict  
+dict ==> string  
+dict ==> yaml  
 
 attempt to loop trough data
