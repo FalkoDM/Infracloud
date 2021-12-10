@@ -1,0 +1,1 @@
+docker run --rm -d -it --name apache8080 -p 8080:80 httpd_falko
