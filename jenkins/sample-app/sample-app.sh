@@ -11,7 +11,7 @@ cp -r templates/* tempdir/templates/.
 cp -r static/* tempdir/static/.
 
 # create Dockerfile echo FROM python is to install python in the container
-echo "FROM python" >> tempdir/Dockerfile
+echo "FROM python" > tempdir/Dockerfile
 
 # use the docker RUN command to install flask in the container
 echo "RUN pip install flask" >> tempdir/Dockerfile
