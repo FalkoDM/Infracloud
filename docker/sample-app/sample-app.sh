@@ -22,7 +22,7 @@ echo "COPY ./templates /home/myapp/templates/" >> tempdir/Dockerfile
 echo "COPY sample_app.py /home/myapp/" >> tempdir/Dockerfile
 
 # use EXPOSE to listen for a specific port
-echo "EXPOSE 8080" >> tempdir/Dockerfile
+echo "EXPOSE 5059" >> tempdir/Dockerfile
 
 # use the CMD command to execute the python script
 echo "CMD python3 /home/myapp/sample_app.py" >> tempdir/Dockerfile
@@ -30,7 +30,7 @@ echo "CMD python3 /home/myapp/sample_app.py" >> tempdir/Dockerfile
 cd tempdir # switch to the tempdir to create the container
 docker build -t sampleapp .
  # start the container and verify it's running
- docker container run -t -d -p 8080:8080 --name samplerunning sampleapp
+ docker container run -t -d -p 5059:5059 --name samplerunning sampleapp
 
  # display all current running docker containers
  docker ps -a
