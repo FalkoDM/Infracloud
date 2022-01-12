@@ -1,0 +1,1 @@
+curl -k -X POST -F 'username=jean' -F 'password=password' 'https://0.0.0.0:5000/login/v2'
