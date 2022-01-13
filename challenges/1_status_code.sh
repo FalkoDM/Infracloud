@@ -4,6 +4,8 @@ ping -c 5 $IP_HOST
 INTERFACE=GigabitEthernet1
 USERNAME=cisco
 PASSWORD=cisco123!
+
+# curl statement om de api call te maken naar de cisco virtual router en accept yang / json data
 status_code=$(curl -ks \
 -w "%{http_code}" \
 -o /dev/null \
@@ -11,7 +13,7 @@ status_code=$(curl -ks \
 -H "Accept: application/yang-data+json" \
 "https://$IP_HOST/restconf/data/ietf-interfaces:interfaces/interface=$INTERFACE")
 
-echo $status_code
+echo $status_code # print status code
 
 if [ $status_code -eq 200 ]
 then 

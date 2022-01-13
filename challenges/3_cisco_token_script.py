@@ -7,23 +7,3 @@ atk = {
 }
 access_token = atk["access_token"]
 print(access_token)
-
-# print('-----1-----')
-# print (type(atk))
-# print('-----1B-----')
-# print(atk.keys())
-# print('-----2-----')
-# #### pretty output
-# print(json.dumps(atk, indent=8))
-# #### FILTERING DATA
-# #### filter access-token
-# print('-----3-----')
-# print(atk["access_token"])
-# #### TRANSFORMING DATA TYPES
-# print('-----4-----')
-# ats = json.dumps(atk)  #### SERIALIZATION
-# print(type(ats))
-# ####
-# print('-----5-----')
-# atj = json.loads(ats)
-# print(type(atj))

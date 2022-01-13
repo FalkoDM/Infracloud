@@ -27,21 +27,3 @@ print("Received Token:")
 print(token)
 print("Length Token:")
 print(len(token))
-
-# #REQUEST API SERVICE (USING X-AUTH-TOKEN -- INVENTORY REQUEST
-# req_url = DNAC_scheme+DNAC_authority+DNAC_port+DNAC_path
-# print(req_url)
-# headers = {'X-auth-token': token}
-# resp_devices = requests.request('GET', req_url, headers=headers, verify=False)
-# print(resp_devices)
-# resp_devices_json = resp_devices.json()
-# #print("Response (json):")
-# #print(json.dumps(resp_devices_json, indent=4))
-# print('Inventory Request - Filtering output')
-# # RESPONSE DATA: OUTPUT USING A LOOP TO PROCESS LIST ITEMS
-# for device in resp_devices_json['response']:
-#     if device['type'] != None:
-#         print('===')
-#         print('Hostname: ' + device['hostname'])
-#         print('Type: ' + device['type'])
-#         print('IP: ' + device['managementIpAddress'])
