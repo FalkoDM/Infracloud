@@ -1,0 +1,27 @@
+---
+- hosts: webservers
+  become: yes
+
+  vars: 
+    app_name: PleaseDeployMe
+    repo_url: https://github.com/FalkoDM/infracloud.git
+    repo_remote: origin
+    repo_version: main
+    repo_path: challenges/15_flask_test_deploy/app/app.py
+    requirements_path: challenges/15_flask_test_deploy/requirements.txt
+    webapps_dir: /home
+
+  tasks:
+    - name: git pull project
+      git: repo={{repo_url}} dest={{webapps_dir}}/{{app_name}} version=main
+
+    - pip: 
+        requirements: /home/PleaseDeployMe/{{requirements_path}}
+
+    - name: activate app
+      command: python3 deployed/PleaseDeployMe/{{repo_path}}
+
+  handlers:
+    - name: restart app
+      supervisorctl: name={{app_name}} state=restarted
+    
