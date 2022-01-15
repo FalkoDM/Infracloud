@@ -10,7 +10,7 @@
 
   tasks:
     - name: update cache
-      apt: name=python-software-properties state=present update_cache=yes cache_valid_time=43200
+      apt: name=pip state=present update_cache=yes cache_valid_time=43200
 
     - name: git pull project
       git: repo={{repo_url}} dest={{webapps_dir}} version=main
