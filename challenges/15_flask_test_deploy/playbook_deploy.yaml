@@ -6,18 +6,18 @@
     repo_url: https://github.com/FalkoDM/infracloud.git
     repo_remote: origin
     repo_version: main
-    webapps_dir: /home
+    webapps_dir: /deploy
 
   tasks:
     - name: git pull project
       git: repo={{repo_url}} dest={{webapps_dir}} version=main
 
     - pip: 
-        requirements: /home/challenges/15_flask_test_deploy/requirements.txt
+        requirements: /deploy/challenges/15_flask_test_deploy/requirements.txt
 
     - name: run app
       command:
-        chdir: /home//challenges/15_flask_test_deploy/app
+        chdir: /deploy//challenges/15_flask_test_deploy/app
         cmd: python3 app.py
 
   handlers:
