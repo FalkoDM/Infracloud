@@ -18,8 +18,8 @@
     - pip: 
         requirements: /home/PleaseDeployMe/{{requirements_path}}
 
-    - name: activate app
-      command: python3 deployed/PleaseDeployMe/{{repo_path}}
+    - name: run app
+      command: python3 home/PleaseDeployMe/{{repo_path}}
 
   handlers:
     - name: restart app
