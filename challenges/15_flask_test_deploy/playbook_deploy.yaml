@@ -17,6 +17,10 @@
 
     - pip: 
         requirements: /deploy/challenges/15_flask_test_deploy/requirements.txt
+    
+    - name: sqlalchemy
+      command:
+        cmd: pip install -U Flask-SQLAlchemy
 
     - name: run app
       command:
