@@ -26,8 +26,5 @@
       command:
         chdir: /deploy//challenges/15_flask_test_deploy/app
         cmd: python3 app.py
-
-  handlers:
-    - name: restart app
-      supervisorctl: name={{app_name}} state=restarted
+   
     
