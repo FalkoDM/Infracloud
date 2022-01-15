@@ -3,23 +3,22 @@
   become: yes
 
   vars: 
-    app_name: PleaseDeployMe
     repo_url: https://github.com/FalkoDM/infracloud.git
     repo_remote: origin
     repo_version: main
-    repo_path: infracloud/challenges/15_flask_test_deploy/app/app.py
-    requirements_path: challenges/15_flask_test_deploy/requirements.txt
     webapps_dir: /home
 
   tasks:
     - name: git pull project
-      git: repo={{repo_url}} dest={{webapps_dir}}/{{app_name}} version=main
+      git: repo={{repo_url}} dest={{webapps_dir}} version=main
 
     - pip: 
-        requirements: /home/PleaseDeployMe/{{requirements_path}}
+        requirements: /home/challenges/15_flask_test_deploy/requirements.txt
 
     - name: run app
-      command: python3 home/PleaseDeployMe/{{repo_path}}
+      command:
+        chdir: /home//challenges/15_flask_test_deploy/app
+        cmd: python3 app.py
 
   handlers:
     - name: restart app
