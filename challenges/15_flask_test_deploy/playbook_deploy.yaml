@@ -7,7 +7,7 @@
     repo_url: https://github.com/FalkoDM/infracloud.git
     repo_remote: origin
     repo_version: main
-    repo_path: challenges/15_flask_test_deploy/app/app.py
+    repo_path: infracloud/challenges/15_flask_test_deploy/app/app.py
     requirements_path: challenges/15_flask_test_deploy/requirements.txt
     webapps_dir: /home
 
