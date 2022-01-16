@@ -4,26 +4,28 @@
 
   vars: 
     repo_url: https://github.com/FalkoDM/infracloud.git
-    repo_remote: origin
-    repo_version: main
     webapps_dir: /deploy
 
   tasks:
     - name: update cache
       apt: name=pip state=present update_cache=yes cache_valid_time=43200
+    
+    - name: update git
+      apt: name=git state=present update_cache=yes cache_valid_time=43200
 
     - name: git pull project
       git: repo={{repo_url}} dest={{webapps_dir}} version=main
 
     - pip: 
-        requirements: /deploy/challenges/15_flask_test_deploy/requirements.txt
+        chdir: /deploy/challenges/15_flask_test_deploy
+        requirements: requirements.txt
     
-    - name: sqlalchemy
-      command:
-        cmd: pip install -U Flask-SQLAlchemy
+    # - name: sqlalchemy
+    #   command:
+    #     cmd: pip install -U Flask-SQLAlchemy
 
     - name: run app
       command:
-        chdir: /deploy//challenges/15_flask_test_deploy/app
+        chdir: /deploy/challenges/15_flask_test_deploy/app
         cmd: python3 app.py
     

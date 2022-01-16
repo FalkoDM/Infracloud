@@ -4,6 +4,6 @@ COPY . .
 RUN apt-get -y update
 RUN pip3 install -r requirements.txt
 
-EXPOSE 5001
+EXPOSE 5050
 
 CMD python3 app/app.py

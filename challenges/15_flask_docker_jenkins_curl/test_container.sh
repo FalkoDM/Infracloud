@@ -1,9 +1,10 @@
+#!/bin/bash
 #curl test script
 
 status_code=$(curl -ks \
 -w "%{http_code}" \
 -o /dev/null \
-"http://172.17.0.2:5050/")
+"http://localhost:5050/")
 
 echo $status_code
 
