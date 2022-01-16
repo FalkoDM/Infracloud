@@ -17,15 +17,11 @@
       git: repo={{repo_url}} dest={{webapps_dir}} version=main
 
     - pip: 
-        chdir: /deploy/challenges/15_flask_test_deploy
+        chdir: /deploy/challenges/15_flask_ansible
         requirements: requirements.txt
-    
-    # - name: sqlalchemy
-    #   command:
-    #     cmd: pip install -U Flask-SQLAlchemy
 
     - name: run app
       command:
-        chdir: /deploy/challenges/15_flask_test_deploy/app
-        cmd: python3 app.py
+        chdir: /deploy/challenges/15_flask_ansible/app
+        cmd: nohup python3 app.py &
     
