@@ -26,5 +26,4 @@
       command:
         chdir: /deploy//challenges/15_flask_test_deploy/app
         cmd: python3 app.py
-   
     
