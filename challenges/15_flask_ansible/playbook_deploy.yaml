@@ -23,5 +23,5 @@
     - name: run app
       command:
         chdir: /deploy/challenges/15_flask_ansible/app
-        cmd: nohup python3 app.py &
+        cmd: python3 app.py &
     

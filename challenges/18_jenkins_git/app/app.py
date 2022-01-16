@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 from flask import Flask, url_for, render_template, flash, request, redirect, session,logging,request
 from flask_sqlalchemy import SQLAlchemy
 
@@ -32,7 +30,7 @@ def home():
 			return render_template('index.html') 
 		return render_template('index.html')
 
-# funciton that handles the login 
+# function that handles the login 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
 	"""Login Form"""
@@ -51,6 +49,7 @@ def login():
 		except:
 			return "Incorrect Login"
 
+# fucntion that defines the register
 @app.route('/register/', methods=['GET', 'POST'])
 def register():
 	"""Register Form"""
@@ -61,13 +60,14 @@ def register():
 		return render_template('login.html')
 	return render_template('register.html')
 
+# logout button
 @app.route("/logout")
 def logout():
 	"""Logout Form"""
 	session['logged_in'] = False
 	return redirect(url_for('home'))
 
-
+# run main
 if __name__ == '__main__':
 	app.debug = True
 	db.create_all()

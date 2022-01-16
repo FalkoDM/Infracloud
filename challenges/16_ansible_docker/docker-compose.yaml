@@ -1,0 +1,10 @@
+version: "3"
+services:
+  apache2:
+    build: .
+    ports:
+      - "8888:8081"
+  apache2-double:
+    build: .
+    ports:
+      - "8889:8081"

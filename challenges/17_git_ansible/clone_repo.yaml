@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  become: yes
+
+  vars: 
+    repo_url: https://github.com/nikolayg/sample-python-api.git
+    webapps_dir: /home/devasc/labs/devnet-src/ansible/ansible-git/sample-python.api
+  
+  gather_facts: //github.com/nikolayg/sample-python-api.git
+
+  tasks:
+
+    - name: git pull project
+      git: repo={{repo_url}} dest={{webapps_dir}} version=master accept_hostkey=yes
+      become: no
