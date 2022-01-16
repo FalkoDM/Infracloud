@@ -1,3 +1,5 @@
+#curl test script
+
 status_code=$(curl -ks \
 -w "%{http_code}" \
 -o /dev/null \
