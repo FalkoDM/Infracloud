@@ -70,4 +70,4 @@ if __name__ == '__main__':
 	app.debug = True
 	db.create_all()
 	app.secret_key = "123"
-	app.run(host='localhost')
+	app.run(host='localhost', port=5000)
