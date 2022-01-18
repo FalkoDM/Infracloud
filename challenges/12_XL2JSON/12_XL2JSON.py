@@ -1,4 +1,3 @@
-
 import xlrd
 import json
 
@@ -8,7 +7,7 @@ member_list = []
 group_dict = {}                            
 group_list = []
 groups_struc = {} # envelop groups_struc in a dict
-groups_struc['groups'] = [] # envelop group_struc['groups'] in a dict
+groups_struc['groups'] = [] # envelop group_struc['groups'] in a list
 
 def find_all_persons_and_groups(xlf):
     # read excel file and return number of rows
@@ -44,7 +43,7 @@ def make_list_of_groups(membr_list):
         member =  group # set member equal to group for the next loop (this way we can filter out double group entries with thesame name)
     return all_groups
 
-# check if hte above function works as intended
+# check if the above function works as intended
 # group_list = make_list_of_groups(member_list)
 # print(type(group_list))
 # print(group_list)
@@ -60,11 +59,11 @@ def attach_members_to_groups(group_name, membr_list):
                 all_group_members.append(membr_dict.copy()) # append a copy of the created dict to all_group_members
     return all_group_members
 
-# check if hte above function works as intended
-for group_record in group_list:
-    all_members = attach_members_to_groups(group_record, member_list)
-    print(type(all_members))
-    print(all_members)
+# check if the above function works as intended
+# for group_record in group_list:
+#     all_members = attach_members_to_groups(group_record, member_list)
+#     print(type(all_members))
+#     print(all_members)
 
 # define main function
 def main():
