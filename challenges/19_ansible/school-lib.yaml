@@ -1,0 +1,22 @@
+---
+- hosts: webservers
+  become: yes
+
+  vars:
+    repo_url: https://github.com/nikolayg/sample-python-api
+    webapps_dir: /test
+
+  tasks:
+
+    - name: git pull project
+      git: repo={{repo_url}} dest={{webapps_dir}} version=master
+    - pip:
+        chdir: /test
+        name: flask==1.02
+        name: flask-restplus==0.12.1
+        name: werkzeug==0.14.1
+    
+    - name: run app
+      command:
+        chdir: /test/src
+        cmd: main.py
