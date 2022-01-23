@@ -1,0 +1,17 @@
+---
+- name: AUTOMATIC BACKUP OF SHOW VERSION
+  hosts: CSR1kv
+  gather_facts: false
+  connection: local
+
+  tasks:
+  - name: SHOW VERSION
+    ios_command:
+      commands: show version
+      wait_for: result[0] contains IOS     
+    register: output
+    
+  - name: SAVE OUTPUT ./versions/
+    copy:
+      content: "{{ output.stdout[0] }}"
+      dest: "versions/csr1kv_versions.txt"

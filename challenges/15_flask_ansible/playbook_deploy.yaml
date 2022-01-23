@@ -3,18 +3,13 @@
   become: yes
 
   vars: 
-    repo_url: https://github.com/FalkoDM/infracloud.git
+    repo_url: https://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@github.com/FalkoDM/infracloud.git
     webapps_dir: /deploy
 
   tasks:
-    - name: update cache
-      apt: name=pip state=present update_cache=yes cache_valid_time=43200
-    
-    - name: update git
-      apt: name=git state=present update_cache=yes cache_valid_time=43200
 
     - name: git pull project # pull project from github
-      git: repo={{repo_url}} dest={{webapps_dir}} version=main
+      git: repo={{repo_url}} dest={{webapps_dir}} version=main 
 
     - pip: 
         chdir: /deploy/challenges/15_flask_ansible
